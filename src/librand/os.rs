@@ -11,6 +11,9 @@
 //! Interfaces to the operating system provided random number
 //! generators.
 
+#[cfg(windows)]
+extern crate libc;
+
 use Rng;
 
 #[cfg(unix)]
@@ -21,7 +24,7 @@ use std::io::File;
 #[cfg(windows)]
 use std::cast;
 #[cfg(windows)]
-use std::libc::{c_long, DWORD, BYTE};
+use self::libc::{c_long, DWORD, BYTE};
 #[cfg(windows)]
 type HCRYPTPROV = c_long;
 // the extern functions imported from the runtime on Windows are
