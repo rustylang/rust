@@ -33,8 +33,9 @@ pub fn main() {
     assert_eq!(x, 13);
 }
 
-// #[cfg(not(target_arch = "x86"), not(target_arch = "x86_64"))]
-// pub fn main() {}
+#[cfg(not(target_arch = "x86"),
+      not(target_arch = "x86_64"))]
+pub fn main() {}
 
 // At least one error is needed so that compilation fails
 #[static_assert]
